@@ -53,6 +53,26 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "fe_processar_csv",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "flt_apenas_csv",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('flt_apenas_csv').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true
+				}
 			}
 		],
 		"annotations": []
