@@ -5,13 +5,21 @@
 			"referenceName": "ls_adls_olist_dev",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"p_table_name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "data.parquet",
-				"folderPath": "bronze/olist",
+				"folderPath": {
+					"value": "@concat('bronze/olist/', dataset().p_table_name)",
+					"type": "Expression"
+				},
 				"fileSystem": "datalake"
 			},
 			"compressionCodec": "snappy"
