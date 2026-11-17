@@ -1,0 +1,21 @@
+{
+	"name": "ds_bronze_olist_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_olist_dev",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "data.parquet",
+				"folderPath": "bronze/olist",
+				"fileSystem": "datalake"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
